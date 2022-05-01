@@ -1,13 +1,5 @@
 <script setup>
-  import axios from 'axios'
-
-  function get(){
-    axios.get('/api/v1/books').then(resp=>{
-      console.log(resp.data)
-    }), err=>{
-      console.log(err.message,"sdfasd")
-    }
-  }
+  
 </script>
 
 <template>
@@ -16,10 +8,9 @@
     <form action="/api/v1/login" method="post">
       <input type="text" name="name"><br>
       <input type="password" name="password"><br>
-      <button class="login-btn" type="submit" >login</button>
+      <button class="login-btn" type="submit">login</button>
     </form>
   </div>
-  
 </template>
 
 <style scoped>
