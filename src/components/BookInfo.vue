@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import axios from 'axios'
 import { ref } from 'vue'
 
@@ -19,12 +19,17 @@ function getAllBooks() {
 getAllBooks()
 
 console.log(Data)
-
 </script>
 
 <template>
-  <div>
-    <h2 >Bookstore</h2>
+<!-- TODO: bookstore 艺术字体 -->
+<router-link to="/base">
+    Bookstore
+  </router-link>
+  <div class="router_view">
+    <router-view></router-view>
+  </div>
+<div class="book">
     <div id="book_info" v-for="book in Data.books.data">
       <div class="book_image">
         <img :src="book.image_path" width="180" height="230">
@@ -35,13 +40,18 @@ console.log(Data)
       <div class="book_price">
         ￥{{ book.price }}
       </div>
-
-    </div>
   </div>
+</div>
+
 </template>
 
 <style scoped>
-.book_name {
+.book{
+  display: block;
+  top: auto;
+  height: 10em;
+}
+book_name {
   color: red;
   font-weight: 100;
 }
@@ -59,9 +69,27 @@ console.log(Data)
 
 #book_info {
   float: left;
-  /* display: flex; */
   width: 180px;
   height: 230px;
   margin-left: 15px;
+  margin-top: 30px;
+}
+
+.navigate {
+  float: right;
+  display: flex;
+  flex: 1;
+  margin-top: -52px;
+  left: 2em;
+}
+
+.header_text {
+  width: 500px;
+}
+
+a {
+  text-decoration-line: none;
+  color: rebeccapurple;
 }
 </style>
+

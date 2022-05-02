@@ -1,18 +1,13 @@
 <script setup lang="ts">
-import Login from './components/Login.vue'
-import Base from './components/Base.vue';
-import Regisetr from './components/Regisetr.vue';
+import BookInfo from './components/BookInfo.vue';
 
 </script>
 
 <template>
-  <Base />
-  <Login />
-  <Regisetr />
-
+  <BookInfo />
 </template>
 
-<style>
+<style >
 body {
   background-color: papayawhip;
 }

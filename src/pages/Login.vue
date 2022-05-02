@@ -3,12 +3,13 @@
 </script>
 
 <template>
-  <div id="register-form">
-    <h2 class="register-text">注册页面</h2>
-    <form action="/api/v1/register" method="post">
+<div style="border:1px solid ;position: fixed;height:500px; right: 400px; color:darksalmon;"></div><!--这个div模拟垂直分割线-->
+  <div id="login-form">
+    <h2 class="login-text">登录页面</h2>
+    <form action="/api/v1/login" method="post">
       <input type="text" name="name"><br>
       <input type="password" name="password"><br>
-      <button class="register-btn" type="submit">Register</button>
+      <button class="login-btn" type="submit">login</button>
     </form>
   </div>
 </template>
@@ -18,6 +19,8 @@ body {
   background-color: papayawhip;
 }
 
+
+
 input {
   width: 200px;
   height: 30px;
@@ -26,14 +29,15 @@ input {
   margin-bottom: 10px;
 }
 
-#register-form {
-  width: 300px;
-  margin: 0 auto;
-  align-items: center;
-  margin-top: 20%;
+#login-form {
+  width: 250px;
+  margin: 0 0;
+  position: fixed;
+  right: 30px;
+  margin-top: 5%;
 }
 
-.register-btn {
+.login-btn {
   width: 206px;
   height: 30px;
   border-radius: 5px;
@@ -44,9 +48,10 @@ input {
   align-items: center;
 }
 
-.register-text {
+.login-text {
   font-size: 20px;
   color: #42b983;
   margin-left: 50px;
 }
 </style>
+
