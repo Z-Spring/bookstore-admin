@@ -7,7 +7,7 @@ let Data = ref({
   books: []
 })
 function getAllBooks() {
-  axios.get('/api/v1/books')
+  axios.get('/books')
     .then(response => {
       Data.value.books = response.data
       console.log(Data)
@@ -22,14 +22,14 @@ console.log(Data)
 </script>
 
 <template>
-<!-- TODO: bookstore 艺术字体 -->
-<router-link to="/base">
+  <!-- TODO: bookstore 艺术字体 -->
+  <router-link to="/base">
     Bookstore
   </router-link>
   <div class="router_view">
     <router-view></router-view>
   </div>
-<div class="book">
+  <div class="book">
     <div id="book_info" v-for="book in Data.books.data">
       <div class="book_image">
         <img :src="book.image_path" width="180" height="230">
@@ -40,17 +40,18 @@ console.log(Data)
       <div class="book_price">
         ￥{{ book.price }}
       </div>
+    </div>
   </div>
-</div>
 
 </template>
 
 <style scoped>
-.book{
+.book {
   display: block;
   top: auto;
   height: 10em;
 }
+
 book_name {
   color: red;
   font-weight: 100;

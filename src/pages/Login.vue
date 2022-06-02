@@ -1,16 +1,40 @@
 <script setup>
+import axios from 'axios'
+import { ref } from 'vue'
+import router from '../router';
 
+const name = ref("")
+const password = ref("")
+
+function login() {
+  const option = {
+    url: "/auth",
+    method: "post",
+    data: {
+      // name: name.value,
+      name: name.value,
+      password: password.value
+    }
+  }
+
+  axios(option)
+    .then((resp) => {
+      location.href = "/base"
+      console.log(resp.data);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+}
 </script>
 
 <template>
-<div style="border:1px solid ;position: fixed;height:500px; right: 400px; color:darksalmon;"></div><!--这个div模拟垂直分割线-->
+  <div style="border:1px solid ;position: fixed;height:500px; right: 400px; color:darksalmon;"></div>
   <div id="login-form">
     <h2 class="login-text">登录页面</h2>
-    <form action="/api/v1/login" method="post">
-      <input type="text" name="name"><br>
-      <input type="password" name="password"><br>
-      <button class="login-btn" type="submit">login</button>
-    </form>
+    <input type="text" placeholder="name" v-model="name"><br>
+    <input type="password" v-model="password" placeholder="password"><br>
+    <button class="login-btn" @click="login">click me</button>
   </div>
 </template>
 
